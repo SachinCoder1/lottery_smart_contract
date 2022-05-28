@@ -26,6 +26,16 @@ contract Lottery {
     function randomNumber() public view returns(uint){
         return uint(keccak256(abi.encodePacked(owner, block.timestamp)));
     }
+    
+
+    // getting winner using random number
+    function winner() public {
+        uint index  = randomNumber() % allPlayers.length;
+        allPlayers[index].transfer(address(this).balance);
+
+        // clear the players
+        allPlayers = new address payable[](0);
+    }
 
 
 
