@@ -11,5 +11,13 @@ contract Lottery {
         // adding the address of owner
         manager = msg.sender;
     }
+
+
+    // fallback payable function -> it will be called when somebody sends ether directly to the contract address.
+    function() payable public {
+       allPlayers.push(msg.sender); // add the address to allPlayers array.
+    }
+
     
+
 }
