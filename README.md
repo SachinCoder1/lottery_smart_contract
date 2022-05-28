@@ -15,6 +15,8 @@
 Global Variables :- 
 1. Owner -> The real owner who deployed the contract ( type address ).
 2. Players -> All the players address will be stored in this dynamic array ( type address[] ).
+3. lotteryNo -> keep track of total lotteries done.
+4. winners -> key value pair to keep track of  lottery winners history.
 
 
 Functions  :- 
@@ -23,6 +25,7 @@ Functions  :-
 3. Get random number.
 4. get balance.
 5. get players
+6. get winners by lottery id.
 
 
 
