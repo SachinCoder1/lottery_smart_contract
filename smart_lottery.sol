@@ -1,0 +1,1 @@
+// Starting the lottery project with full energy.
