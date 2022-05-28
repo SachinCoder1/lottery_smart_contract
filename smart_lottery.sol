@@ -29,7 +29,7 @@ contract Lottery {
     
 
     // getting winner using random number
-    function winner() public {
+    function winner() public onlyOwner{
         uint index  = randomNumber() % allPlayers.length;
         allPlayers[index].transfer(address(this).balance);
 
@@ -37,6 +37,10 @@ contract Lottery {
         allPlayers = new address payable[](0);
     }
 
+    modifier onlyOwner() {
+        require(msg.sender == owner);
+        _;
+    }
 
 
 }
