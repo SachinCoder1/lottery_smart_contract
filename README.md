@@ -8,6 +8,25 @@
 3. Remix IDE.
 
 
+
+
+# Architecture of the project :-
+
+Global Variables :- 
+1. Owner -> The real owner who deployed the contract ( type address ).
+2. Players -> All the players address will be stored in this dynamic array ( type address[] ).
+
+
+Functions  :- 
+1. Enter Lottery
+2. Pick winner
+3. Get random number.
+4. get balance.
+5. get players
+
+
+
+
 # How It works :-
 
 1. The lottery starts accepting transactions, anyone having an ethereum wallet can send a minimum amount of 0.001 Ether.
