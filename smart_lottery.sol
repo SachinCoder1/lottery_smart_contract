@@ -1,23 +1,32 @@
 // SPDX-License-Identifier: MIT
-pragma solidity ^0.4.24;
+pragma solidity ^0.8.11;
 
 
 
 contract Lottery {
-    address[] public allPlayers; // dynamic array with all player's address;
-    address public manager;  // Owner;
+    address public owner;  // Owner;
+    address payable[] public allPlayers; // dynamic array with all player's address which is payable;
     
     constructor(){
         // adding the address of owner
-        manager = msg.sender;
+        owner = msg.sender;
+    }
+
+   
+    // Enter the lottery
+    function addLottery () public payable {
+        // require a lottery balance before executing below lines.
+        require(msg.value > 0.1 ether);
+
+        // If ethers are there then add the address.
+        allPlayers.push(payable(msg.sender));
+    }
+
+    // Get random number by using keccak256 algorithm ( Not a stable thing to do)
+    function randomNumber() public view returns(uint){
+        return uint(keccak256(abi.encodePacked(owner, block.timestamp)));
     }
 
 
-    // fallback payable function -> it will be called when somebody sends ether directly to the contract address.
-    function() payable public {
-       allPlayers.push(msg.sender); // add the address to allPlayers array.
-    }
-
-    
 
 }
